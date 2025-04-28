@@ -17,15 +17,18 @@
         "name": "[concat(parameters('vmName'), '/CustomScriptExtension')]",
         "location": "[resourceGroup().location]",
         "properties": {
-          "publisher": "Microsoft.Compute",
-          "type": "CustomScriptExtension",
-          "typeHandlerVersion": "1.10",
-          "autoUpgradeMinorVersion": true,
-          "settings": {
-            "fileUris": [
-              "https://raw.githubusercontent.com/Faltu-Khan/NCahce-4.8-MSI/master/install-ncache.ps1"
-            ],
-            "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File install-ncache.ps1"
+            "publisher": "Microsoft.Compute",
+            "type": "CustomScriptExtension",
+            "typeHandlerVersion": "1.10",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+              "fileUris": [
+                "https://raw.githubusercontent.com/Faltu-Khan/NCahce-4.8-MSI/master/install-ncache.ps1"
+              ],
+              "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File install-ncache.ps1"
+            },
+            "protectedSettings": {
+              "managedIdentity": {}
           }
         }
       }
