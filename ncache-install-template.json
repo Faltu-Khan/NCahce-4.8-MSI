@@ -2,36 +2,35 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-      "vmName": {
-        "type": "string",
-        "defaultValue": "vm01",
-        "metadata": {
-          "description": "Name of the virtual machine"
+        "vmName": {
+            "type": "string",
+            "defaultValue": "vm01",
+            "metadata": {
+                "description": "Name of the virtual machine"
+            }
         }
-      }
     },
     "resources": [
-      {
-        "type": "Microsoft.Compute/virtualMachines/extensions",
-        "apiVersion": "2021-03-01",
-        "name": "[concat(parameters('vmName'), '/CustomScriptExtension')]",
-        "location": "[resourceGroup().location]",
-        "properties": {
-            "publisher": "Microsoft.Compute",
-            "type": "CustomScriptExtension",
-            "typeHandlerVersion": "1.10",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-              "fileUris": [
-                "https://raw.githubusercontent.com/Faltu-Khan/NCahce-4.8-MSI/master/install-ncache.ps1"
-              ],
-              "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File install-ncache.ps1"
-            },
-            "protectedSettings": {
-              "managedIdentity": {}
-          }
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "apiVersion": "2021-03-01",
+            "name": "[concat(parameters('vmName'), '/CustomScriptExtension')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "publisher": "Microsoft.Compute",
+                "type": "CustomScriptExtension",
+                "typeHandlerVersion": "1.10",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "fileUris": [
+                        "https://armstorage01.blob.core.windows.net/scripts/install-ncache.ps1?sp=r&st=2025-04-28T11:06:53Z&se=2025-04-29T19:06:53Z&sv=2024-11-04&sr=b&sig=1J90q7AbxM5crXpjXv%2Ftcx7V2m%2BRNPkVBxxRe8CiKU0%3D"
+                    ],
+                    "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File install-ncache.ps1"
+                },
+                "protectedSettings": {
+                    "managedIdentity": {}
+                }
+            }
         }
-      }
     ]
-  }
-  
+}
