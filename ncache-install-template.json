@@ -23,7 +23,7 @@
                 "autoUpgradeMinorVersion": true,
                 "settings": {
                     "fileUris": [
-                        "https://armstorage01.blob.core.windows.net/scripts/install-ncache.ps1?sp=r&st=2025-04-28T11:06:53Z&se=2025-04-29T19:06:53Z&sv=2024-11-04&sr=b&sig=1J90q7AbxM5crXpjXv%2Ftcx7V2m%2BRNPkVBxxRe8CiKU0%3D"
+                        "https://armstorage01.blob.core.windows.net/ps1-file/install-ncache.ps1?sp=r&st=2025-04-28T11:06:53Z&se=2025-04-29T19:06:53Z&sv=2024-11-04&sr=b&sig=1J90q7AbxM5crXpjXv%2Ftcx7V2m%2BRNPkVBxxRe8CiKU0%3D"
                     ],
                     "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File install-ncache.ps1"
                 },
